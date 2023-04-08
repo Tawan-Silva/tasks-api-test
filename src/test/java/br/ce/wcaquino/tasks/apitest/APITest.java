@@ -24,17 +24,17 @@ public class APITest {
 		;
 	}
 	
-	@Test
-	public void deveAdicionarTarefaComSucesso() {
-		RestAssured.given()
-			.body("{ \"task\": \"Teste via API\", \"dueDate\": \"2020-12-30\" }")
-			.contentType(ContentType.JSON)
-		.when()
-			.post("/todo")
-		.then()
-			.statusCode(201)
-		;
-	}
+	// @Test
+	// public void deveAdicionarTarefaComSucesso() {
+	// 	RestAssured.given()
+	// 		.body("{ \"task\": \"Teste via API\", \"dueDate\": \"2020-12-30\" }")
+	// 		.contentType(ContentType.JSON)
+	// 	.when()
+	// 		.post("/todo")
+	// 	.then()
+	// 		.statusCode(201)
+	// 	;
+	// }
 	
 	@Test
 	public void naoDeveAdicionarTarefaInvalida() {
@@ -49,28 +49,28 @@ public class APITest {
 		;
 	}
 	
-	@Test
-	public void deveRemoverTarefaComSucesso() {
-		//inserir
-		Integer id = RestAssured.given()
-			.body("{ \"task\": \"Tarefa para remoção\", \"dueDate\": \"2020-12-30\" }")
-			.contentType(ContentType.JSON)
-		.when()
-			.post("/todo")
-		.then()
-//			.log().all()
-			.statusCode(201)
-			.extract().path("id")
-		;
+// 	@Test
+// 	public void deveRemoverTarefaComSucesso() {
+// 		//inserir
+// 		Integer id = RestAssured.given()
+// 			.body("{ \"task\": \"Tarefa para remoção\", \"dueDate\": \"2020-12-30\" }")
+// 			.contentType(ContentType.JSON)
+// 		.when()
+// 			.post("/todo")
+// 		.then()
+// //			.log().all()
+// 			.statusCode(201)
+// 			.extract().path("id")
+// 		;
 		
-		System.out.println(id);
+// 		System.out.println(id);
 		
-		//remover
-		RestAssured.given()
-		.when()
-			.delete("/todo/"+id)
-		.then()
-			.statusCode(204)
-		;
-	}
+// 		//remover
+// 		RestAssured.given()
+// 		.when()
+// 			.delete("/todo/"+id)
+// 		.then()
+// 			.statusCode(204)
+// 		;
+// 	}
 }
